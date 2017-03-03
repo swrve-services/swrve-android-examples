@@ -3,6 +3,10 @@ What is Swrve
 Swrve is a single integrated platform delivering everything you need to drive mobile engagement and create valuable consumer relationships on mobile.  
 This repository contains additional examples of how to use the Swrve Android SDK.
 
+Examples
+--------
+* [Change User ID](/ChangeUserID/) - An example of how to implement a class which allows you to change user id after the Swrve SDK is initialized.
+
 Getting started
 ---------------
 * Integrate the [Swrve Android SDK](https://github.com/Swrve/swrve-android-sdk)

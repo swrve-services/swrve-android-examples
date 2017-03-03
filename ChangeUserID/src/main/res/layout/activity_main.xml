@@ -21,12 +21,12 @@
         android:onClick="onChangeUserIDToB"
         android:text="User B">
     </Button>
+
     <Button
-        android:id="@+id/Button03"
+        android:id="@+id/ButtonNULL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:onClick="onChangeUserIDToNull"
-        android:text="User NULL">
-    </Button>
+        android:text="User NULL"></Button>
 </LinearLayout>

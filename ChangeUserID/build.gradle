@@ -1,3 +1,19 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.0'
+    }
+}
+
+repositories {
+    mavenCentral()
+    jcenter {
+        url  "http://dl.bintray.com/swrve-inc/android"
+    }
+}
+
 apply plugin: 'com.android.application'
 
 android {
@@ -16,12 +32,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-    }
-}
-
-repositories {
-    jcenter{
-        url = 'http://dl.bintray.com/swrve-inc/android'
     }
 }
 

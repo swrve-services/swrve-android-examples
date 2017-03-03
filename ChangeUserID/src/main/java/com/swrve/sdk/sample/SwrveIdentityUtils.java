@@ -13,6 +13,7 @@ import com.swrve.sdk.SwrveIAPRewards;
 import com.swrve.sdk.SwrveSDK;
 import com.swrve.sdk.SwrveSDKBase;
 import com.swrve.sdk.config.SwrveConfig;
+import com.swrve.sdk.gcm.ISwrvePushNotificationListener;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
@@ -167,6 +168,9 @@ public class SwrveIdentityUtils {
         }
 
         public void onTokenRefreshed(){
+        }
+
+        public void setPushNotificationListener(ISwrvePushNotificationListener pushNotificationListener){
         }
     }
 }

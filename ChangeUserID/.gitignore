@@ -1,25 +1,15 @@
-# built application files
-*.apk
-*.ap_
-
-# files for the dex VM
-*.dex
-
-# Java class files
-*.class
-
-# generated files
-bin/
-gen/
-
-# Local configuration file (sdk path, etc)
-local.properties
-
-#Eclipse files to ignore
 .metadata
-*.tmp
-*.bak
-*.swp
+.DS_Store
+local.properties
+findbugs-results.html
+packages/
+SwrveSDK/providedLibs
 
-# Libs
-libs/*
+# Android Studio
+.idea
+.gradle
+build
+*.iml
+.settings/org.eclipse.jdt.core.prefs
+repo/
+publish/

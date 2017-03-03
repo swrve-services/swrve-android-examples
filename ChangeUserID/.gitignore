@@ -1,0 +1,15 @@
+.metadata
+.DS_Store
+local.properties
+findbugs-results.html
+packages/
+SwrveSDK/providedLibs
+
+# Android Studio
+.idea
+.gradle
+build
+*.iml
+.settings/org.eclipse.jdt.core.prefs
+repo/
+publish/

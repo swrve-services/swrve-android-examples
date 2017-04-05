@@ -11,6 +11,8 @@
 /.idea/libraries
 .DS_Store
 /build
+/ExampleInstrumentedTest.java
+/ExampleUnitTest.java
 
 #built application files
 *.apk

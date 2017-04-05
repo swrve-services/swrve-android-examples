@@ -21,6 +21,7 @@ import java.util.Map;
 public class SwrveSampleIdUtils {
 
     public static void sendSampleIdForUser() {
+
         String userId = SwrveSDK.getUserId();
 
         // get md5 hash of the userId

@@ -13,12 +13,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SwrveSDK.onCreate(this);
-        setContentView(R.layout.activity_main);
 
         // Use the SwrveSampleIdUtils to genereate a number between 1-100 for the
         // userId. This function should be called as soon as possible after the
         // SwrveSDK.OnCreate(this) method.
         SwrveSampleIdUtils.sendSampleIdForUser();
+
+        setContentView(R.layout.activity_main);
     }
 
     @Override

@@ -1,6 +1,10 @@
 package com.swrve.usersampleid;
 
 import com.swrve.sdk.SwrveHelper;
+import com.swrve.sdk.SwrveSDK;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A utility to send a user_property update to Swrve. The user property should be a number
@@ -8,11 +12,17 @@ import com.swrve.sdk.SwrveHelper;
  * This number can then be used to separate users into target groups and compare different
  * marketing strategies.
  * E.g. To target 1/4 of users you would use the filter "user_sample_id between 1 and 25 inclusive"
+ *
+ * config.setUserId("01a94aec-d8ba-4292-8ab3-04edef4d1d71"); // returns 1
+ * config.setUserId("018bb009-db2c-4feb-9c61-ec5871cd1cea"); // returns 50
+ * config.setUserId("01b2d2e6-3fa5-4abb-aad8-d0aed0ece9b8");   // returns 100
  */
 
-public class UserSampleIdUtils {
+public class SwrveSampleIdUtils {
 
-    public static int generateNumberForUser(String user_id) {
+    public static void sendSampleIdForUser() {
+        String user_id = SwrveSDK.getUserId();
+
         // get md5 hash of the user_id
         String hash = SwrveHelper.md5(user_id);
         hash = hash.substring(0, 8);
@@ -25,6 +35,10 @@ public class UserSampleIdUtils {
         // From this decimal get an int from 1-100
         int userSampleId = (int) Math.ceil(user_range * 100.0d);
 
-        return userSampleId;
+        // Update the user user_sample_id user property in Swrve
+        Map<String, String> attributes = new HashMap<String, String>();
+        attributes.put("user_sample_id", String.valueOf(userSampleId));
+        SwrveSDK.userUpdate(attributes);
+        SwrveSDK.sendQueuedEvents();
     }
 }

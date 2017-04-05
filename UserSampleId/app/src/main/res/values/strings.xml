@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">UserSampleId</string>
-    <string name="user_id_label">User ID:</string>
-    <string name="user_sample_id_label">User Sample ID:</string>
+    <string name="user_sample_id_label">User Sample ID Example</string>
 </resources>

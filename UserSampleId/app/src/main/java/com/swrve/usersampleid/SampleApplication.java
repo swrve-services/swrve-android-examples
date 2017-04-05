@@ -11,7 +11,7 @@ public class SampleApplication extends Application {
 
     //  FIXME Add your own App ID and Api Key here
     private static final int YOUR_APP_ID = 0;
-    private static final String YOUR_API_KEY = "<add_your_api_key_here";
+    private static final String YOUR_API_KEY = "<add_your_api_key_here>";
 
     @Override
     public void onCreate() {

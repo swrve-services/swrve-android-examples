@@ -38,5 +38,5 @@ android {
 dependencies {
     compile 'com.android.support:design:' + project.ANDROID_DESIGN_TOOLS_VERSION
 
-    compile 'com.swrve.sdk.android:swrve-google:4.8.0'
+    compile 'com.swrve.sdk.android:swrve-google:4.9.0'
 }

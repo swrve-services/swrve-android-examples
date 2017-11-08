@@ -18,14 +18,7 @@ android {
         }
     }
 }
-repositories {
-    jcenter{
-        url 'http://dl.bintray.com/swrve-inc/android'
-    }
-    maven {
-        url 'https://maven.google.com'
-    }
-}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -36,5 +29,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     // Change version number to upgrade to newest Swrve Version
-    compile 'com.swrve.sdk.android:swrve:4.11.3'
+    compile 'com.swrve.sdk.android:swrve:5.0.0'
 }

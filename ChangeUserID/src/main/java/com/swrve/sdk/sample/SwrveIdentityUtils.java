@@ -7,16 +7,14 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.swrve.sdk.ISwrve;
+import com.swrve.sdk.Swrve;
 import com.swrve.sdk.SwrveBaseEmpty;
-import com.swrve.sdk.SwrveEmpty;
 import com.swrve.sdk.SwrveIAPRewards;
 import com.swrve.sdk.SwrveSDK;
 import com.swrve.sdk.SwrveSDKBase;
 import com.swrve.sdk.config.SwrveConfig;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.ParameterizedType;
-import java.net.URL;
 
 /**
  * A utility to manage user identity with the Swrve SDK. This utility gives you the ability
@@ -30,6 +28,11 @@ public class SwrveIdentityUtils {
      * The config used to initialize the SDK.
      */
     protected SwrveConfig config = null;
+
+    /**
+     * The current Swrve instance
+     */
+    protected Swrve swrve = null;
 
     /**
      * The app_id of the Swrve environment
@@ -100,11 +103,13 @@ public class SwrveIdentityUtils {
             // until the SDK is initialized with the old user's ID again.
             SwrveSDK.sendQueuedEvents();
 
-            // Shutdown attachement to activity lifecycle
-            // TODO:!
-            //SwrveSDK.onActivityPause();
-            //SwrveSDK.onActivityDestroy(activity);
+            // Shutdown attachment to activity lifecycle
+            if (swrve != null) {
+                swrve.onActivityPaused(activity);
+                swrve.onActivityDestroyed(activity);
+            }
 
+            swrve = null;
             // Shutdown the SDK
             SwrveSDK.shutdown();
 
@@ -121,14 +126,13 @@ public class SwrveIdentityUtils {
         if(user_id == null) {
             setStaticFieldToValue(SwrveSDKBase.class, "instance", new SwrveEmpty(application, api_key));
         } else {
-            SwrveSDK.createInstance(application, app_id, api_key, config);
+            swrve = (Swrve)SwrveSDK.createInstance(application, app_id, api_key, config);
         }
 
         // Initialize the activity lifecycle
-        if( activity != null ) {
-            // TODO:!
-            //SwrveSDK.onActivityCreated(activity);
-            //SwrveSDK.onActivityResume(activity);
+        if(swrve != null && activity != null) {
+            swrve.onActivityCreated(activity, null);
+            swrve.onActivityResumed(activity);
         }
     }
 

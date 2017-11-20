@@ -3,8 +3,8 @@
     package="com.swrve.sdk.sample">
 
     <uses-sdk
-        android:minSdkVersion="10"
-        android:targetSdkVersion="23" />
+        android:minSdkVersion="14"
+        android:targetSdkVersion="26" />
 
     <!-- Add this to your AndroidManifest.xml if you want to support push notifications -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />

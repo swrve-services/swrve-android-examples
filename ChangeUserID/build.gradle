@@ -10,20 +10,23 @@ buildscript {
 repositories {
     mavenCentral()
     jcenter {
-        url  "http://dl.bintray.com/swrve-inc/android"
+        url 'http://dl.bintray.com/swrve-inc/android'
+    }
+    maven {
+        url 'https://maven.google.com'
     }
 }
 
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion Integer.parseInt(project.ANDROID_BUILD_SDK_VERSION)
-    buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
 
     defaultConfig {
-        applicationId "com.swrve.sdk.sample"
-        minSdkVersion Integer.parseInt(project.ANDROID_BUILD_MIN_SDK_VERSION)
-        targetSdkVersion Integer.parseInt(project.ANDROID_BUILD_TARGET_SDK_VERSION)
+        applicationId "com.swrve.changeuserid"
+        minSdkVersion 14
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
     }
@@ -36,7 +39,8 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:design:' + project.ANDROID_DESIGN_TOOLS_VERSION
+    compile 'com.android.support:appcompat-v7:26.0.+'
+    compile 'com.android.support:design:26.0.+'
 
-    compile 'com.swrve.sdk.android:swrve-google:4.9.0'
+    compile 'com.swrve.sdk.android:swrve-google:4.11.3'
 }

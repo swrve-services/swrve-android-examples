@@ -13,7 +13,6 @@ import com.swrve.sdk.SwrveIAPRewards;
 import com.swrve.sdk.SwrveSDK;
 import com.swrve.sdk.SwrveSDKBase;
 import com.swrve.sdk.config.SwrveConfig;
-import com.swrve.sdk.gcm.ISwrvePushNotificationListener;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
@@ -102,8 +101,9 @@ public class SwrveIdentityUtils {
             SwrveSDK.sendQueuedEvents();
 
             // Shutdown attachement to activity lifecycle
-            SwrveSDK.onPause();
-            SwrveSDK.onDestroy(activity);
+            // TODO:!
+            //SwrveSDK.onActivityPause();
+            //SwrveSDK.onActivityDestroy(activity);
 
             // Shutdown the SDK
             SwrveSDK.shutdown();
@@ -126,8 +126,9 @@ public class SwrveIdentityUtils {
 
         // Initialize the activity lifecycle
         if( activity != null ) {
-            SwrveSDK.onCreate(activity);
-            SwrveSDK.onResume(activity);
+            // TODO:!
+            //SwrveSDK.onActivityCreated(activity);
+            //SwrveSDK.onActivityResume(activity);
         }
     }
 
@@ -170,7 +171,7 @@ public class SwrveIdentityUtils {
         public void onTokenRefreshed(){
         }
 
-        public void setPushNotificationListener(ISwrvePushNotificationListener pushNotificationListener){
-        }
+        //public void setPushNotificationListener(ISwrvePushNotificationListener pushNotificationListener){
+        //}
     }
 }

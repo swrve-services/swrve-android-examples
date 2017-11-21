@@ -174,8 +174,5 @@ public class SwrveIdentityUtils {
 
         public void onTokenRefreshed(){
         }
-
-        //public void setPushNotificationListener(ISwrvePushNotificationListener pushNotificationListener){
-        //}
     }
 }

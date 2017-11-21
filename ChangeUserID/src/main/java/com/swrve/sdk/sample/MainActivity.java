@@ -1,7 +1,9 @@
 package com.swrve.sdk.sample;
 
-import android.os.Bundle;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -77,8 +79,16 @@ public class MainActivity extends AppCompatActivity {
         SwrveSDK.sendQueuedEvents();
 
         ((SampleApplication)(getApplication())).getSwrveIdentityUtility().changeUserID(this, userID);
+        saveUserToPreferences(userID);
 
         SwrveSDK.event("Changed to " + userID + " from " + oldUserID);
         SwrveSDK.sendQueuedEvents();
+    }
+
+    protected void saveUserToPreferences(String userID) {
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this.getApplication());
+        SharedPreferences.Editor prefEditor = settings.edit();
+        prefEditor.putString("userID", userID);
+        prefEditor.commit();
     }
 }

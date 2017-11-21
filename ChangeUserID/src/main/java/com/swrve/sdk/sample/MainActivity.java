@@ -1,7 +1,9 @@
 package com.swrve.sdk.sample;
 
-import android.os.Bundle;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -12,38 +14,32 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SwrveSDK.onCreate(this);
         setContentView(R.layout.activity_main);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        SwrveSDK.onResume(this);
     }
 
     @Override
     public void onLowMemory() {
         super.onLowMemory();
-        SwrveSDK.onLowMemory();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        SwrveSDK.onPause();
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        SwrveSDK.onNewIntent(intent);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        SwrveSDK.onDestroy(this);
     }
 
     /**
@@ -77,15 +73,22 @@ public class MainActivity extends AppCompatActivity {
      * @param userID
      */
     protected void changeToUserID(String userID) throws Exception {
-
         String oldUserID = SwrveSDK.getUserId();
 
         SwrveSDK.event("Changing from " + oldUserID  + " to " + userID);
         SwrveSDK.sendQueuedEvents();
 
         ((SampleApplication)(getApplication())).getSwrveIdentityUtility().changeUserID(this, userID);
+        saveUserToPreferences(userID);
 
         SwrveSDK.event("Changed to " + userID + " from " + oldUserID);
         SwrveSDK.sendQueuedEvents();
+    }
+
+    protected void saveUserToPreferences(String userID) {
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this.getApplication());
+        SharedPreferences.Editor prefEditor = settings.edit();
+        prefEditor.putString("userID", userID);
+        prefEditor.commit();
     }
 }

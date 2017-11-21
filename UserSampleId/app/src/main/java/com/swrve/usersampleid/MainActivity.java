@@ -12,7 +12,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SwrveSDK.onCreate(this);
 
         // Use the SwrveSampleIdUtils to genereate a number between 1-100 for the
         // userId. This function should be called as soon as possible after the
@@ -25,30 +24,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        SwrveSDK.onResume(this);
     }
 
     @Override
     public void onLowMemory() {
         super.onLowMemory();
-        SwrveSDK.onLowMemory();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        SwrveSDK.onPause();
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        SwrveSDK.onNewIntent(intent);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        SwrveSDK.onDestroy(this);
     }
 }

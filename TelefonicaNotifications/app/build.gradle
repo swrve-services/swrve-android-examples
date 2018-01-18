@@ -25,4 +25,19 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    implementation 'com.swrve.sdk.android:swrve-firebase:5.0.0'
+
+    implementation 'com.telefonica.snlib:SNlib:1.5.+'
+    implementation 'com.telefonica.snlib:SNlibClassifier:1.5.+'
+    implementation 'com.telefonica.snlib:SNlibCommons:1.5.+'
+    implementation 'com.telefonica.snlib:SNlibSensors:1.5.+'
+    implementation 'com.telefonica.snlib:SNlibPushNotifications:1.5.+'
+
+    // TODO: seems to be required by SNLibJobService
+    implementation 'com.squareup.okhttp3:okhttp:3.9.1'
+
+    implementation 'com.google.firebase:firebase-core:11.4.0'
 }
+
+apply plugin: 'com.google.gms.google-services'

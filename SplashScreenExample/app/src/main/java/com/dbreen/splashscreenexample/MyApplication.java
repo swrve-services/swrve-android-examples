@@ -15,8 +15,8 @@ public class MyApplication extends Application {
     // TODO - Replace the app_id and api_key to point to your own dashboard
     // TODO - If using push don't forget to add your google-services.json file to the project
     
-    int app_id = -1;
-    String api_key = "<api_key_here>";
+    int YOUR_APP_ID = -1;
+    String YOUR_API_KEY = "<api_key_here>";
     
     @Override
     public void onCreate() {
@@ -44,7 +44,7 @@ public class MyApplication extends Application {
             config.setNotificationConfig(notificationConfig.build());
 
             // Swrve Initialization
-            SwrveSDK.createInstance(this, app_id, api_key, config);
+            SwrveSDK.createInstance(this, YOUR_APP_ID, YOUR_API_KEY, config);
         } catch (IllegalArgumentException exp) {
             Log.e("SwrveDemo", "Could not initialize the Swrve SDK", exp);
         }

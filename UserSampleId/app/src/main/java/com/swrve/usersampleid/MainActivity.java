@@ -2,7 +2,8 @@ package com.swrve.usersampleid;
 
 import android.os.Bundle;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.swrve.sdk.SwrveSDK;
 

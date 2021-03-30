@@ -5,7 +5,7 @@ This repository contains additional examples of how to use the Swrve Android SDK
 
 Examples
 --------
-* [Change User ID](/ChangeUserID/) - An example of how to implement a class which allows you to change user id after the Swrve SDK is initialized.
+* [Splash Screen Example](/SplashScreenExample/) - There can be issues when an In App Campaign is triggered while a splash screen is showing. This is an example of how to prevent these issues by preventing the Splash Screen from being destroyed until after the In App Campaign is dismissed.
 * [User Sample ID](/UserSampleId/) - An example of how to implement a class which allows you to send a user property from 1-100 for each user. This user property can then be used to separate users into target groups and compare different marketing strategies.
 
 Getting started

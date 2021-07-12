@@ -35,5 +35,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     // Change version number to upgrade to newest Swrve Version
-    implementation 'com.swrve.sdk.android:swrve:7.5.0'
+    implementation 'com.swrve.sdk.android:swrve:7.6.1'
 }
